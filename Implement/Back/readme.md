@@ -1,2 +1,0 @@
-- Thiết kế database
-- Tạo dữ liệu cơ bản
