@@ -1,0 +1,72 @@
+.week-summary{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    background-color: #F9E4D7;
+    border-radius: 10px;
+    padding: 12px 16px;
+}
+
+.summary-item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.circular{
+    margin-block: 8px;
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: 140px;
+    background: conic-gradient(#A5A5A5 100deg, red 100deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.circular::before{
+    position: absolute;
+    content: '';
+    aspect-ratio: 1;
+    background-color: #F9E4D7;
+    border-radius: 50%;
+    width: 110px;
+}
+
+.circular span{
+    position: absolute;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.green-dot, .red-dot{
+    margin-right: 5px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.green-dot{
+    background-color: green;
+}
+
+.red-dot{
+    background-color: red;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+}

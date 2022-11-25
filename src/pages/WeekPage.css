@@ -1,0 +1,10 @@
+.seach-filter{
+    display: flex;
+    justify-content: space-between;
+    margin-block: 20px;
+}
+
+.submit{
+    display: block;
+    margin-left: auto;
+}

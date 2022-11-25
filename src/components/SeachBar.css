@@ -1,0 +1,25 @@
+.search-bar{
+    border-radius: 10px;
+    max-width: 250px;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+input{
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.search-icon{
+    color: gray;
+}
+
+
+input:focus{
+    border: none;
+    outline: none;
+}

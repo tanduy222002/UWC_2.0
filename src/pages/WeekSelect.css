@@ -1,0 +1,21 @@
+.title{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.title img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.title h1{
+    font-size: 26px;
+}
+
+.content-layout{
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+}
