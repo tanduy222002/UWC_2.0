@@ -7,6 +7,7 @@ function getAllRoutes():Route[]{
 }
 
 function getUnassignedRoute():Route[]{
+
     let res:Route[]=[]
 
     data.RouteList.forEach((route:Route)=>{
