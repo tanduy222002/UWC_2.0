@@ -7,7 +7,7 @@ function createJaniatorTask(){
 }
 //tao collector task trong thang x tuan y
 function createCollectorTask(){
-
+    
 }
 
 //lay collector task theo id tuyen duong thang x tuan y

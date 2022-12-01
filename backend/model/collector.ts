@@ -36,3 +36,4 @@ function getUnassignedColWithName(month:number,week:number,name:string):Collecto
     })
     return result
 }
+export{getUnassignedCol,getUnassignedColWithName}
