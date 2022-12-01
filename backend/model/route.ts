@@ -6,18 +6,5 @@ function getAllRoutes():Route[]{
     return data.RouteList
 }
 
-function getUnassignedRoute():Route[]{
-
-    let res:Route[]=[]
-
-    data.RouteList.forEach((route:Route)=>{
-        if (!route.assigned){
-            res.push(route)
-        }
-    })
-    
-    return res
-}
-
-
+//lay list cac tuyen co chua chuoi z
 
