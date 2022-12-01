@@ -18,3 +18,5 @@ function getUnassignedJan(month:number,week:number):Janiator[]{
     })
     return result
 }
+
+export {getUnassignedJan}

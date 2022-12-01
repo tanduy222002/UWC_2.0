@@ -38,3 +38,5 @@ function countAssignedMCP(routeID:string,month:number,week:number):number[]{
     })
     return [assign,count]
 }
+
+export {getMCPByRoute,countMCPWorker,countAssignedMCP}

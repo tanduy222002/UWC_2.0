@@ -1,11 +1,13 @@
-import { getAllRoutes } from "../model/route";
-
-const getAllRoutes = async (req, res, next) => {
-  if (req.query.name == NULL) {
-    res.status(200).json(getAllRoutes());
+import { getUnassignedCol, getUnassignedColWithName } from "../model/collector";
+const getAllCollector = async (req, res, next) => {
+  const name = req.query.name;
+  const week = req.query.week;
+  const month = req.query.week;
+  if (name === undefined) {
+    res.status(200).json(getUnassignedCol(month, week));
   } else {
-    res.status(200).json("Get route by name");
+    res.status(200).json(getUnassignedColWithName(month, week, name));
   }
 };
 
-module.exports = { getAllRoutes };
+module.exports = { getAllCollector };
