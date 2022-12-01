@@ -1,22 +1,22 @@
 class Route{
-    routeID:string
+    routeID:number
     routeName:string //maybe some more field?
 
 
-    constructor(_id:string,_routeName:string){
+    constructor(_id:number,_routeName:string){
         this.routeID=_id
         this.routeName=_routeName
     }
 }
 
 class MCP{
-    mcpID:string
+    mcpID:number
     capacity:number=100
     workerCount:number
     location:string
-    routeID:string //route that MCP belong to
+    routeID:number //route that MCP belong to
 
-    constructor(_id:string,_location:string,_routeID:string,_workerCount:number){
+    constructor(_id:number,_location:string,_routeID:number,_workerCount:number){
         this.mcpID=_id
         this.location=_location
         this.routeID=_routeID
@@ -26,13 +26,13 @@ class MCP{
 }
 
 class Vehicle{
-    vehicleID:string
+    vehicleID:number
     vehicleName:string
     capacity:number=100
     weight:number=100
     fuelConsumption:number=100
 
-    constructor(_Id:string,_name:string){
+    constructor(_Id:number,_name:string){
         this.vehicleID=_Id
         this.vehicleName=_name
     }
@@ -47,22 +47,24 @@ enum TaskStatus{
 }
 
 class Task{
-    taskID:string
+    taskID:number
     status:TaskStatus
     month:number
     week:number
-    constructor(_id:string,_month:number,_week:number){ //need to rewrite constructor
+    constructor(_id:number,_month:number,_week:number){ //need to rewrite constructor
         this.taskID=_id
     }
 }
 
 class CollectorTask extends Task{
-    routeID:string
-    vehicleID:string
-    collectorID:string
+    static count:number=0
+    routeID:number
+    vehicleID:number
+    collectorID:number
 
-    constructor(_taskID:string,_routeID:string,_vehicleID:string,_collectorID:string,_month:number,_week:number){
-        super(_taskID,_month,_week)
+    constructor(_routeID:number,_vehicleID:number,_collectorID:number,_month:number,_week:number){
+        CollectorTask.count++
+        super(CollectorTask.count,_month,_week)
         this.routeID=_routeID
         this.vehicleID=_vehicleID
         this.collectorID=_collectorID
@@ -70,10 +72,12 @@ class CollectorTask extends Task{
 }
 
 class JaniatorTask extends Task{
-    mcpID:string
-    janiatorID:string
-    constructor(_taskID:string,_mcpID:string,_janiatorID:string,_month:number,_week:number){
-        super(_taskID,_month,_week)
+    static count:number=0
+    mcpID:number
+    janiatorID:number
+    constructor(_mcpID:number,_janiatorID:number,_month:number,_week:number){
+        JaniatorTask.count++
+        super(JaniatorTask.count,_month,_week)
         this.mcpID=_mcpID
         this.janiatorID=_janiatorID
     }
@@ -88,12 +92,12 @@ enum Shift{
     Evening="Dem",
 }
 class User{
-    userID:string
+    userID:number
     userName:string="testName"
     phone:string="0000000000"
     workTime:Shift
     workDay:string
-    constructor(_id:string,_wt:Shift){
+    constructor(_id:number,_wt:Shift){
         this.userID=_id
         this.workTime=_wt
     };
@@ -103,7 +107,7 @@ class User{
 class Janiator extends User{
     workingArea:string="testJaniatorArea"
 
-    constructor(_id:string,_wt:Shift){
+    constructor(_id:number,_wt:Shift){
         super(_id,_wt)
     }
 
@@ -124,7 +128,7 @@ class Janiator extends User{
 class Collector extends User{
     licenseNumber:number=123456
 
-    constructor(_id:string,_wt:Shift){
+    constructor(_id:number,_wt:Shift){
         super(_id,_wt)
     }
 
@@ -144,7 +148,7 @@ class Collector extends User{
 
 class BackOfficer extends User{
     managementArea:string="testmanagementArea"
-    constructor(_id:string,_wt:Shift){
+    constructor(_id:number,_wt:Shift){
         super(_id,_wt)
     }
 }

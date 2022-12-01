@@ -4,7 +4,7 @@ import {CollectorTask,Vehicle} from './model'
 
 function getUnassignedVec(month:number,week:number):Vehicle[]{
     //get assigned list at specified time
-    var assignedID:string[]=[]
+    var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
         if (task.month===month&&task.week==week){
             assignedID.push(task.vehicleID)
