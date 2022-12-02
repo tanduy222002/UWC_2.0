@@ -5,10 +5,11 @@ function getUnassignedCol(month: number, week: number): Collector[] {
     //get assigned list at specified time
     var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
-        if (task.month===month&&task.week==week){
+        if (task.month===month&&task.week===week){
             assignedID.push(task.collectorID)
         }
     })
+
     var result: Collector[] = []
     data.CollectorList.forEach((coll) => {
         if (!assignedID.includes(coll.userID)) {
@@ -24,7 +25,7 @@ function getUnassignedColWithName(month: number, week: number, name: string): Co
     //get assigned list at specified time
     var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
-        if (task.month===month&&task.week==week){
+        if (task.month===month&&task.week===week){
             assignedID.push(task.collectorID)
         }
     })
@@ -38,10 +39,12 @@ function getUnassignedColWithName(month: number, week: number, name: string): Co
 }
 
 function getColNameById(id: number) {
+    var result=""
     data.CollectorList.forEach((collector) => {
         if (collector.userID == id) {
-            return collector.userName;
+            result=collector.userName;
         }
     })
+    return result
 }
 export { getUnassignedCol, getUnassignedColWithName, getColNameById }

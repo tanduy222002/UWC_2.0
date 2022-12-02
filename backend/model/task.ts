@@ -2,9 +2,9 @@ import * as data from './data'
 import { CollectorTask, JaniatorTask } from './model'
 //tao janiator task trong thang x tuan y
 
-function createJaniatorTask(mcpId : number, janiatorId : number[], month:number, week:number) {
+function createJaniatorTask(mcpId : number, janiatorId : string[], month:number, week:number) {
     janiatorId.forEach((id)=>{
-        data.JaniatorTaskList.push(new JaniatorTask(mcpId,id,month,week))
+        data.JaniatorTaskList.push(new JaniatorTask(mcpId,Number(id),month,week))
     })
 }
 //tao collector task trong thang x tuan y

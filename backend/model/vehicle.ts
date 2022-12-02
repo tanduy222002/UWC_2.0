@@ -20,12 +20,13 @@ function getUnassignedVec(month: number, week: number): Vehicle[] {
 }
 
 function getVecNameById(id: number) {
+    var result=""
     data.VehicleList.forEach(vehicle => {
-        if (vehicle.vehicleID = id) {
-            return vehicle.vehicleName;
+        if (vehicle.vehicleID === id) {
+            result=vehicle.vehicleName;
         }
     })
-    return "";
+    return result;
 }
 export { getUnassignedVec, getVecNameById }
 //

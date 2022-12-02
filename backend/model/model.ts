@@ -52,6 +52,8 @@ class Task{
     week:number
     constructor(_id:number,_month:number,_week:number){ //need to rewrite constructor
         this.taskID=_id
+        this.month=_month
+        this.week=_week
     }
 }
 
