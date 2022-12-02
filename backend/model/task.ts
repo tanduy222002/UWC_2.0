@@ -11,7 +11,7 @@ function createCollectorTask(route: number, collector:number, vehicle:number, mo
 }
 
 //lay collector task theo id tuyen duong thang x tuan y
-function getCollectorTaskByRouteID(routeID: string, month: number, week: number): CollectorTask | null {
+function getCollectorTaskByRouteID(routeID: number, month: number, week: number): CollectorTask | null {
     for (let i = 0; i < data.CollectorTaskList.length; i++) {
         let temp = data.CollectorTaskList[i]
         if (temp.month === month && temp.week === week && temp.routeID === routeID) {

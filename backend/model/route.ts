@@ -8,7 +8,7 @@ function getAllRoutes():Route[]{
 
 //lay list cac tuyen duong chua assign trong thang x tuan y
 function getUnassignedRoute(month:number,week:number):Route[]{
-    var assignedID:string[]=[]
+    var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
         if (task.month===month&&task.week==week){
             assignedID.push(task.routeID)
@@ -23,7 +23,7 @@ function getUnassignedRoute(month:number,week:number):Route[]{
     return result
 }
 function getUnassignedRouteWithName(month:number,week:number,name:string):Route[]{
-    var assignedID:string[]=[]
+    var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
         if (task.month===month&&task.week==week){
             assignedID.push(task.routeID)

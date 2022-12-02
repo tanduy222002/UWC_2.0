@@ -4,9 +4,9 @@ import { CollectorTask, Vehicle } from './model'
 
 function getUnassignedVec(month: number, week: number): Vehicle[] {
     //get assigned list at specified time
-    var assignedID: string[] = []
-    data.CollectorTaskList.forEach((task) => {
-        if (task.month === month && task.week == week) {
+    var assignedID:number[]=[]
+    data.CollectorTaskList.forEach((task)=>{
+        if (task.month===month&&task.week==week){
             assignedID.push(task.vehicleID)
         }
     })
@@ -19,7 +19,7 @@ function getUnassignedVec(month: number, week: number): Vehicle[] {
     return result
 }
 
-function getVecNameById(id: string) {
+function getVecNameById(id: number) {
     data.VehicleList.forEach(vehicle => {
         if (vehicle.vehicleID = id) {
             return vehicle.vehicleName;

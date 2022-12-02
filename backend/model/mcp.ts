@@ -5,7 +5,7 @@ function getAllMCP():MCP[]{
     return data.MCPList
 }
 //lay mcp theo route id
-function getMCPByRoute(routeID:string):MCP[]{
+function getMCPByRoute(routeID:number):MCP[]{
     var result:MCP[]=[]
     data.MCPList.forEach((mcp)=>{
         if (mcp.routeID===routeID){
@@ -16,7 +16,7 @@ function getMCPByRoute(routeID:string):MCP[]{
 }
 
 //dem so luong janiator cua MCP trong thang x tuan y
-function countMCPWorker(mcpID:string,month:number,week:number):number{
+function countMCPWorker(mcpID:number,month:number,week:number):number{
     var count:number=0
     data.JaniatorTaskList.forEach((task)=>{
         if (task.mcpID===mcpID&&task.month===month&&task.week===week){
@@ -26,7 +26,7 @@ function countMCPWorker(mcpID:string,month:number,week:number):number{
     return count
 }
 //lay so luong mcp da duoc assigned theo route id trong thang x tuan y 
-function countAssignedMCP(routeID:string,month:number,week:number):number[]{
+function countAssignedMCP(routeID:number,month:number,week:number):number[]{
     var assign=0,count=0
     data.MCPList.forEach((mcp)=>{
         if (mcp.routeID===routeID){

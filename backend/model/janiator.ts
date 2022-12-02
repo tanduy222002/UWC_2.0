@@ -4,7 +4,7 @@ import {Janiator} from './model'
 
 function getUnassignedJan(month:number,week:number):Janiator[]{
     //get assigned list at specified time
-    var assignedID:string[]=[]
+    var assignedID:number[]=[]
     data.JaniatorTaskList.forEach((task)=>{
         if (task.month===month&&task.week==week){
             assignedID.push(task.janiatorID)
