@@ -3,11 +3,13 @@ import { CollectorTask, JaniatorTask } from './model'
 //tao janiator task trong thang x tuan y
 
 function createJaniatorTask(mcpId : number, janiatorId : number[], month:number, week:number) {
-    return null
+    janiatorId.forEach((id)=>{
+        data.JaniatorTaskList.push(new JaniatorTask(mcpId,id,month,week))
+    })
 }
 //tao collector task trong thang x tuan y
-function createCollectorTask(route: number, collector:number, vehicle:number, month:number, week:number ) {
-    return null
+function createCollectorTask(routeID: number, collectorID:number, vehicleID:number, month:number, week:number ) {
+    data.CollectorTaskList.push(new CollectorTask(routeID,vehicleID,collectorID,month,week))
 }
 
 //lay collector task theo id tuyen duong thang x tuan y
