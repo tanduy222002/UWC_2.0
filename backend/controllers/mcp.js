@@ -1,9 +1,9 @@
-import { getMCPByRoute, countMCPWorker } from "../model/mcp";
-
+const  { getMCPByRoute, countMCPWorker } =require("../model/mcp");
+const {createJaniatorTask}=require("../model/task")
 const getAllMCP = async (req, res, next) => {
-  const week = req.query.week;
-  const month = req.query.month;
-  const routeID = req.query.route_id;
+  const week = Number(req.query.week);
+  const month = Number(req.query.month);
+  const routeID = Number(req.query.route_id);
   const mcpList = getMCPByRoute(routeID);
   var result = [];
   mcpList.forEach((mcp) => {
@@ -17,13 +17,15 @@ const getAllMCP = async (req, res, next) => {
         String(mcp.workerCount),
     });
   });
+  res.json(result);
 };
 
 const updateMCP = async (req, res, next) => {
-  const mcpId = req.body.mcpId;
+  console.log(req.body)
+  const mcpId = Number(req.body.mcpId);
   const janiatorId = req.body.janiatorId;
-  const month = req.body.month;
-  const week = req.body.week;
+  const month = Number(req.body.month);
+  const week = Number(req.body.week);
   createJaniatorTask(mcpId, janiatorId, month, week);
   res.status(200).json("Create janitortask successfully");
 };

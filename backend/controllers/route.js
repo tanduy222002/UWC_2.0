@@ -1,22 +1,18 @@
-import {
+const {
   getAllRoutes,
   getUnassignedRoute,
   getUnassignedRouteWithName,
-} from "../model/route";
-import { getCollectorTaskByRouteID } from "../model/task";
-import { countAssignedMCP } from "../model/mcp";
-import { getColNameById } from "../model/collector";
-import { getVecNameById } from "../model/vehicle";
-import {
-  getCollectorTaskByRouteID,
-  createJaniatorTask,
-  createCollectorTask,
-} from "../model/task";
+} = require("../model/route");
+const { getCollectorTaskByRouteID,createCollectorTask,createJaniatorTask }=require("../model/task");
+const { countAssignedMCP}=require( "../model/mcp");
+const { getColNameById } =require("../model/collector");
+const { getVecNameById } =require("../model/vehicle");
 
-const getAllRoutes = async (req, res, next) => {
+
+const getAllRoutesReq = async (req, res, next) => {
   var name = req.query.name === undefined ? "" : req.query.name;
-  const week = req.query.week;
-  const month = req.query.week;
+  const week = Number(req.query.week);
+  const month = Number(req.query.month);
   const allRoute = getAllRoutes();
 
   let result = [];
@@ -26,7 +22,7 @@ const getAllRoutes = async (req, res, next) => {
     }
     //get collectask from route id
     let collectask = getCollectorTaskByRouteID(route.routeID, month, week);
-
+    console.log(collectask)
     //get mcp from route id
     let countMCP = countAssignedMCP(route.routeID, month, week); //[assigned,count]
 
@@ -53,14 +49,14 @@ const getAllRoutes = async (req, res, next) => {
 };
 
 const updateRoute = (req, res, next) => {
-  const route = req.body.route_id;
-  const collector = req.body.collecotr_id;
-  const vehicle = req.body.vehicle_id;
-  const month = req.body.month;
-  const week = req.body.week;
+  const route = Number(req.body.route_id);
+  const collector = Number(req.body.collector_id);
+  const vehicle = Number(req.body.vehicle_id);
+  const month = Number(req.body.month);
+  const week = Number(req.body.week);
 
   createCollectorTask(route, collector, vehicle, month, week);
   res.status(200).json("Create collectortask successfully");
 };
 
-module.exports = { getAllRoutes, updateRoute };
+module.exports = { getAllRoutesReq, updateRoute };

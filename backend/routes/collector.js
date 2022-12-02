@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getAllCollector } = require("../controllers/route");
+const { getAllCollector } = require("../controllers/collector");
 
 router.route("/").get(getAllCollector);
 
