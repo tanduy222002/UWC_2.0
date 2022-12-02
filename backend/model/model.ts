@@ -2,7 +2,6 @@ class Route{
     routeID:number
     routeName:string //maybe some more field?
 
-
     constructor(_id:number,_routeName:string){
         this.routeID=_id
         this.routeName=_routeName
@@ -93,7 +92,6 @@ enum Shift {
 }
 class User{
     userID:number
-    userName:string="testName"
     phone:string="0000000000"
     workTime:Shift
     workDay:string
@@ -105,10 +103,12 @@ class User{
 
 
 class Janiator extends User {
+    userName:string
     workingArea: string = "testJaniatorArea"
 
     constructor(_id:number,_wt:Shift){
         super(_id,_wt)
+        this.userName=("testJaniatorName"+_id)
     }
 
     // addTask(task:JaniatorTask){
@@ -126,10 +126,12 @@ class Janiator extends User {
 }
 
 class Collector extends User {
+    userName
     licenseNumber: number = 123456
 
     constructor(_id:number,_wt:Shift){
         super(_id,_wt)
+        this.userName=("testCollectorName"+_id)
     }
 
     // addTask(task:CollectorTask){
@@ -153,4 +155,4 @@ class BackOfficer extends User{
     }
 }
 
-export { Route, MCP, Collector, Janiator, CollectorTask, JaniatorTask, Vehicle }
+export { Route, MCP, Collector, Janiator, CollectorTask, JaniatorTask, Vehicle,Shift }
