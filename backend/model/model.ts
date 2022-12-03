@@ -96,7 +96,7 @@ class User{
     userID:number
     phone:string="0000000000"
     workTime:Shift
-    workDay:string
+    workDay:string="T2-T6"
     constructor(_id:number,_wt:Shift){
         this.userID=_id
         this.workTime=_wt
