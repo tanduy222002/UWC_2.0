@@ -1,6 +1,7 @@
 const express = require("express");
 const body_parser = require("body-parser");
 const app = express();
+var cors = require("cors");
 
 const notFoundMiddleware = require("./middleware/not-found");
 const errorMiddleware = require("./middleware/error-handler");
@@ -14,6 +15,7 @@ const routeMcp = require("./routes/mcp");
 const routeVehicle = require("./routes/vehicle");
 const routeTask = require("./routes/task");
 // middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/route", routeRoute);
