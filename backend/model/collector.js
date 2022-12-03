@@ -7,7 +7,7 @@ function getUnassignedCol(month, week) {
     //get assigned list at specified time
     var assignedID = [];
     data.CollectorTaskList.forEach(function (task) {
-        if (task.month === month && task.week == week) {
+        if (task.month === month && task.week === week) {
             assignedID.push(task.collectorID);
         }
     });
@@ -25,7 +25,7 @@ function getUnassignedColWithName(month, week, name) {
     //get assigned list at specified time
     var assignedID = [];
     data.CollectorTaskList.forEach(function (task) {
-        if (task.month === month && task.week == week) {
+        if (task.month === month && task.week === week) {
             assignedID.push(task.collectorID);
         }
     });

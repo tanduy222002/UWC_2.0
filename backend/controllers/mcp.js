@@ -1,5 +1,5 @@
-const  { getMCPByRoute, countMCPWorker } =require("../model/mcp");
-const {createJaniatorTask}=require("../model/task")
+const { getMCPByRoute, countMCPWorker } = require("../model/mcp");
+const { createJaniatorTask } = require("../model/task");
 const getAllMCP = async (req, res, next) => {
   const week = Number(req.query.week);
   const month = Number(req.query.month);
@@ -21,7 +21,7 @@ const getAllMCP = async (req, res, next) => {
 };
 
 const updateMCP = async (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const mcpId = Number(req.body.mcpId);
   const janiatorId = req.body.janiatorId;
   const month = Number(req.body.month);

@@ -65,6 +65,15 @@ var JaniatorList = [
     new model_1.Janiator(8, model_1.Shift.Afternoon),
     new model_1.Janiator(9, model_1.Shift.Evening),
     new model_1.Janiator(10, model_1.Shift.Morning),
+    new model_1.Janiator(11, model_1.Shift.Morning),
+    new model_1.Janiator(12, model_1.Shift.Afternoon),
+    new model_1.Janiator(13, model_1.Shift.Evening),
+    new model_1.Janiator(14, model_1.Shift.Morning),
+    new model_1.Janiator(15, model_1.Shift.Afternoon),
+    new model_1.Janiator(16, model_1.Shift.Evening),
+    new model_1.Janiator(17, model_1.Shift.Morning),
+    new model_1.Janiator(18, model_1.Shift.Afternoon),
+    new model_1.Janiator(19, model_1.Shift.Evening),
 ];
 exports.JaniatorList = JaniatorList;
 //represend Collector Task table

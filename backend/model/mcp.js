@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.countAssignedMCP = exports.countMCPWorker = exports.getMCPByRoute = void 0;
+exports.getAssignedMCP = exports.countAssignedMCP = exports.countMCPWorker = exports.getMCPByRoute = void 0;
 var data = require("./data");
 function getAllMCP() {
     return data.MCPList;
@@ -41,3 +41,15 @@ function countAssignedMCP(routeID, month, week) {
     return [assign, count];
 }
 exports.countAssignedMCP = countAssignedMCP;
+function getAssignedMCP(routeID, month, week) {
+    var res = [];
+    data.MCPList.forEach(function (mcp) {
+        if (mcp.routeID === routeID) {
+            if (countMCPWorker(mcp.mcpID, month, week) === mcp.workerCount) {
+                res.push(mcp);
+            }
+        }
+    });
+    return res;
+}
+exports.getAssignedMCP = getAssignedMCP;

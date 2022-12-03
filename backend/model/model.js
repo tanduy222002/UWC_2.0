@@ -102,6 +102,7 @@ exports.Shift = Shift;
 var User = /** @class */ (function () {
     function User(_id, _wt) {
         this.phone = "0000000000";
+        this.workDay = "T2-T6";
         this.userID = _id;
         this.workTime = _wt;
     }

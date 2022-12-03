@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.getUnassignedRouteWithName = exports.getUnassignedRoute = exports.getAllRoutes = void 0;
+exports.getRouteNameById = exports.getUnassignedRouteWithName = exports.getUnassignedRoute = exports.getAllRoutes = void 0;
 var data = require("./data");
 function getAllRoutes() {
     return data.RouteList;
@@ -39,3 +39,13 @@ function getUnassignedRouteWithName(month, week, name) {
     return result;
 }
 exports.getUnassignedRouteWithName = getUnassignedRouteWithName;
+function getRouteNameById(routeId) {
+    var res = "";
+    data.RouteList.forEach(function (route) {
+        if (route.routeID === routeId) {
+            res = route.routeName;
+        }
+    });
+    return res;
+}
+exports.getRouteNameById = getRouteNameById;
