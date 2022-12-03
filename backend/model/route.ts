@@ -22,6 +22,7 @@ function getUnassignedRoute(month:number,week:number):Route[]{
     })
     return result
 }
+
 function getUnassignedRouteWithName(month:number,week:number,name:string):Route[]{
     var assignedID:number[]=[]
     data.CollectorTaskList.forEach((task)=>{
@@ -38,4 +39,13 @@ function getUnassignedRouteWithName(month:number,week:number,name:string):Route[
     return result
 }
 
-export {getAllRoutes,getUnassignedRoute,getUnassignedRouteWithName}
+function getRouteNameById (routeId:number):String{
+    let res:String = "";
+    data.RouteList.forEach(route => {
+        if(route.routeID === routeId){
+            res = route.routeName;
+        }
+    });
+    return res;
+}
+export {getAllRoutes,getUnassignedRoute,getUnassignedRouteWithName, getRouteNameById}

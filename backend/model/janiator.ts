@@ -19,4 +19,14 @@ function getUnassignedJan(month:number,week:number):Janiator[]{
     return result
 }
 
-export {getUnassignedJan}
+function getJaniatorById (id:number):Janiator|null{
+    let res:Janiator|null = null;
+    for(let i=0; i<data.JaniatorList.length; i++){
+        const tmp = data.JaniatorList[i];
+        if(tmp.userID === id){
+            res = tmp;
+        }
+    }
+    return res;
+}
+export {getUnassignedJan, getJaniatorById}

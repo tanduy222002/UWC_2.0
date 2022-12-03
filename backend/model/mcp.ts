@@ -39,4 +39,16 @@ function countAssignedMCP(routeID:number,month:number,week:number):number[]{
     return [assign,count]
 }
 
-export {getMCPByRoute,countMCPWorker,countAssignedMCP}
+function getAssignedMCP(routeID:number,month:number,week:number):MCP[]{
+    let res:MCP[]=[];
+    data.MCPList.forEach((mcp)=>{
+        if (mcp.routeID===routeID){
+            if (countMCPWorker(mcp.mcpID,month,week)===mcp.workerCount){
+                res.push(mcp);
+            }
+        }
+    })
+    return res;
+}
+
+export {getMCPByRoute,countMCPWorker,countAssignedMCP, getAssignedMCP}
