@@ -3,11 +3,14 @@ const {
   getUnassignedRoute,
   getUnassignedRouteWithName,
 } = require("../model/route");
-const { getCollectorTaskByRouteID,createCollectorTask,createJaniatorTask }=require("../model/task");
-const { countAssignedMCP}=require( "../model/mcp");
-const { getColNameById } =require("../model/collector");
-const { getVecNameById } =require("../model/vehicle");
-
+const {
+  getCollectorTaskByRouteID,
+  createCollectorTask,
+  createJaniatorTask,
+} = require("../model/task");
+const { countAssignedMCP } = require("../model/mcp");
+const { getColNameById } = require("../model/collector");
+const { getVecNameById } = require("../model/vehicle");
 
 const getAllRoutesReq = async (req, res, next) => {
   var name = req.query.name === undefined ? "" : req.query.name;
@@ -22,7 +25,7 @@ const getAllRoutesReq = async (req, res, next) => {
     }
     //get collectask from route id
     let collectask = getCollectorTaskByRouteID(route.routeID, month, week);
-    console.log(collectask)
+    console.log(collectask);
     //get mcp from route id
     let countMCP = countAssignedMCP(route.routeID, month, week); //[assigned,count]
 
