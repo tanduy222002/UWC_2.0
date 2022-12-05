@@ -1,12 +1,16 @@
 import SeachBar from '../components/SeachBar'
 import WeekSummary from '../components/WeekSummary'
+import { useFetch } from '../hooks/useFetch'
 import Form from 'react-bootstrap/Form'
 import RouteTable from '../components/RouteTable'
+
 import './WeekPage.css'
 
 const options = ['Phân loại','Đã hoàn thành', 'Chưa hoàn thành', 'Chưa phân công tài xế', 'Chưa phân công phương tiện']
 
 const WeekPage = () => {
+    const url = '/api/route?week=11&month=12'
+    const routes = useFetch(url)
     return(
         <div>
             <WeekSummary />
@@ -18,7 +22,7 @@ const WeekPage = () => {
                     })}
                 </Form.Select>
             </div>
-            <RouteTable />
+            <RouteTable routes={routes} />
             <button className='submit' style={{marginTop: "10px"}}>
                 Gửi thông báo
             </button>

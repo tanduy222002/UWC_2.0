@@ -1,11 +1,16 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import WeekSelect from './pages/WeekSelect'
 import CollectorSelection from './pages/CollectorSelection'
 import VehicleSelection from './pages/VehicleSelection'
 
 function App() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate('/overview')
+  }, [])
   return (
     <div className="App">
       <NavBar />

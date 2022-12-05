@@ -1,4 +1,5 @@
 import './RouteTable.css'
+import { useNavigate } from 'react-router-dom'
 
 const routes = [
     {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
@@ -9,6 +10,7 @@ const routes = [
 ]
 
 const RouteTable = () => {
+    const navigate = useNavigate()
     return(
         <table className="route-table">
             <thead>
@@ -25,9 +27,15 @@ const RouteTable = () => {
                     return(
                     <tr key={i}>
                         <td>{route.name}</td>
-                        <td>{route.collector}</td>
-                        <td>{route.vehicle}</td>
-                        <td>{route.MCP}</td>
+                        <td onClick={(navigate('collector'))}>
+                            {route.collector}
+                        </td>
+                        <td onClick={(navigate('vehicle'))}>
+                            {route.vehicle}
+                        </td>
+                        <td onClick={(navigate('MCP'))}>
+                            {route.MCP}
+                        </td>
                         <td>{route.state}</td>
                     </tr>
                     )

@@ -8,14 +8,18 @@ const api = axios.create({
     }
 });
 
+
 export function useFetch(url) {
     const [data, setData] = useState()
 
-    useEffect(() => {
-        api.get(url).then((res) => {
-            console.log(res.data);
+    useEffect(() => {       
+        api.get(url)
+        .then(res => {
             const newData = res.data
+            console.log(newData);
             setData(newData)
-        })
+        }) 
     }, [])
+
+    return data
 }
