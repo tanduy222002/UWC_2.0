@@ -1,0 +1,31 @@
+.vehicle-table{
+    max-width: 1200px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+thead, tbody{
+    text-align: left;
+}
+
+tbody tr{
+    background-color: #F9E4D7;
+    border-radius: 5px;
+
+}
+
+th, td{
+    padding: 5px 5px;
+    overflow: hidden;
+}
+
+td:first-child{
+    border-radius: 5px 0 0 5px;
+}
+
+td:last-child{
+    border-radius: 0 5px 5px 0;
+}

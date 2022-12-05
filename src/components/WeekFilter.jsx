@@ -13,7 +13,7 @@ const WeekFilter = () => {
                 if(parseInt(e.target.value) > 0) {
                     navigate(`/week${e.target.value}`)
                 } else {
-                    navigate('/')
+                    navigate('/overview')
                 }
             }}
             className='week-filter'
