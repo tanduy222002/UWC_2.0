@@ -1,13 +1,16 @@
 import WeekFilter from '../components/WeekFilter'
 import { useParams } from 'react-router-dom'
+import { useFetch } from '../hooks/useFetch'
 import Report from '../assets/Report.png'
 import './WeekSelect.css'
 import DefaultPage from './DefaultPage'
 import WeekPage from './WeekPage'
-import { Routes, Route} from 'react-router-dom'
 
 
 const WeekSelect = () => {
+    const url = 'api/collector?week=11&month=12'
+    const routes = useFetch(url)
+    console.log(routes);
     const { week } = useParams()
     return (
         <div className='content-layout'>

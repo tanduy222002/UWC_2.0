@@ -2,6 +2,8 @@ import React from 'react'
 import SearchBar from '../components/SeachBar'
 import CollectorTable from '../components/CollectorTable'
 
+
+
 const CollectorSelection = () => {
   return (
     <>
