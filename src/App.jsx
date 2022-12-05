@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import WeekSelect from './pages/WeekSelect'
 import CollectorSelection from './pages/CollectorSelection'
 import VehicleSelection from './pages/VehicleSelection'
+import MCPSelection from './pages/MCPSelection'
 
 function App() {
   const navigate = useNavigate()
@@ -19,6 +20,7 @@ function App() {
             <Route path='/:week' element={<WeekSelect />} />
             <Route path='/:week/collector' element={<CollectorSelection /> } />
             <Route path='/:week/vehicle' element={<VehicleSelection /> } />
+            <Route path='/:week/MCP' element={<MCPSelection /> } />
 
         </Routes>
       </div>

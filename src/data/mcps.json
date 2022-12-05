@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "status": true,
+        "address": "224A, Trần Hưng Đạo, TPHCM",
+        "janitors": 6,
+        "max": 6
+    },
+    {
+        "id": 2,
+        "status": true,
+        "address": "256, Lý Thường Kiệt, TPHCM",
+        "janitors": 5,
+        "max": 5
+    },
+    {
+        "id": 3,
+        "status": false,
+        "address": "1, Võ Văn Ngân, TPHCM",
+        "janitors": 5,
+        "max": 6
+    },
+    {
+        "id": 2,
+        "status": false,
+        "address": "123, Ngô Quyền, TPHCM",
+        "janitors": 1,
+        "max": 6
+    },
+    {
+        "id": 2,
+        "status": false,
+        "address": "25, An Dương Vương, TPHCM",
+        "janitors": 0,
+        "max": 6
+    }
+]

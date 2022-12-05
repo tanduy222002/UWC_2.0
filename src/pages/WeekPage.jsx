@@ -11,6 +11,7 @@ const options = ['Phân loại','Đã hoàn thành', 'Chưa hoàn thành', 'Chư
 const WeekPage = () => {
     const url = '/api/route?week=11&month=12'
     const routes = useFetch(url)
+    console.log(routes);
     return(
         <div>
             <WeekSummary />

@@ -27,13 +27,13 @@ const RouteTable = () => {
                     return(
                     <tr key={i}>
                         <td>{route.name}</td>
-                        <td onClick={(navigate('collector'))}>
+                        <td onClick={() => navigate('collector')}>
                             {route.collector}
                         </td>
-                        <td onClick={(navigate('vehicle'))}>
+                        <td onClick={() => navigate('vehicle')}>
                             {route.vehicle}
                         </td>
-                        <td onClick={(navigate('MCP'))}>
+                        <td onClick={() => navigate('MCP')}>
                             {route.MCP}
                         </td>
                         <td>{route.state}</td>
