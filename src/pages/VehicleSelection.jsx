@@ -10,9 +10,13 @@ import './VehicleSelection.css'
 const VehicleSelection = () => {
   const navigate = useNavigate()
   const { route } = useParams()
-  const [vehicles, setVehicles] = useState()
+  const[name,setName]=useState('')
+  let [vehicles, setVehicles] = useState()
   const [selected, setSelected] = useState(-1)
   const  updateRoute  = useRouteUpdate()
+  if(name!=""){
+    vehicles=vehicles.filter(vehicle=>vehicle.vehicleName.toLowerCase().includes(name.toLowerCase()))
+  }
   function checkItem(e, i) {
       if(e.target.checked) {
           setSelected(i)
@@ -44,7 +48,8 @@ const VehicleSelection = () => {
             <div>Địa chỉ</div>
         </div>
 
-        <SearchBar placeHolder='Tìm kiếm phương tiện'/>
+        <SearchBar placeHolder='Tìm kiếm phương tiện'
+        setName={setName}/>
         <VehicleTable vehicles={vehicles} selected={selected} checkItem={checkItem}/>
         <button 
             className='submit' 

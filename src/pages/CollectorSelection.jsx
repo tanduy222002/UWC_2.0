@@ -11,9 +11,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const CollectorSelection = () => {
   const navigate = useNavigate()
   const { route } = useParams()
-  const [collectors, setCollectors] = useState()
+  let [collectors, setCollectors] = useState()
   const [selected, setSelected] = useState(-1)
+  const [name,setName]=useState('')
   const updateRoute = useRouteUpdate()
+  if(name!=""){
+    collectors=collectors.filter(collector=>collector.userName.toLowerCase().includes(name.toLowerCase()))
+  }
   function checkItem(e, i) {
       if(e.target.checked) {
           setSelected(i)
@@ -42,7 +46,8 @@ const CollectorSelection = () => {
             <div>Địa chỉ</div>
         </div>
 
-        <SearchBar placeHolder='Tìm kiếm tài xế theo tên'/>
+        <SearchBar placeHolder='Tìm kiếm tài xế theo tên'
+        setName={setName}/>
         <CollectorTable collectors={collectors} selected={selected} checkItem={checkItem} />
         <button           
           className='submit' 
