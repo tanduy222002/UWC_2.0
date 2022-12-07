@@ -1,6 +1,6 @@
 import SeachBar from '../components/SeachBar'
 import WeekSummary from '../components/WeekSummary'
-import { useFetch } from '../hooks/useFetch'
+import { useRoutes } from '../hooks/useRoutes'
 import Form from 'react-bootstrap/Form'
 import RouteTable from '../components/RouteTable'
 
@@ -8,10 +8,10 @@ import './WeekPage.css'
 
 const options = ['Phân loại','Đã hoàn thành', 'Chưa hoàn thành', 'Chưa phân công tài xế', 'Chưa phân công phương tiện']
 
+
 const WeekPage = () => {
-    const url = '/api/route?week=11&month=12'
-    const routes = useFetch(url)
-    console.log(routes);
+    const routes = useRoutes()
+
     return(
         <div>
             <WeekSummary />

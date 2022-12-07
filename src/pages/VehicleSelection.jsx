@@ -1,4 +1,5 @@
-import React from 'react'
+import { useState, useEffect} from 'react'
+import { api } from '../data/api'
 import './VehicleSelection.css'
 import { useNavigate } from 'react-router-dom'
 import SearchBar from '../components/SeachBar'
@@ -7,6 +8,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const VehicleSelection = () => {
   const navigate = useNavigate()
+  const [vehicles, setVehicles] = useState()
+
+  useEffect(() => {
+    const url = '/api/vehicle?week=11&month=12'
+    api.get(url)
+    .then(res => {
+      setVehicles(res.data)
+    })
+  }, [])
   return (
     <>
         <ArrowBackIcon className='back-btn'onClick={() => navigate(-1)}/>
@@ -17,7 +27,7 @@ const VehicleSelection = () => {
         </div>
 
         <SearchBar placeHolder='Tìm kiếm tài xế theo tên'/>
-        <VehicleTable />
+        <VehicleTable vehicles={vehicles}/>
         <button className='submit' style={{marginTop: "10px"}}>
             Lưu thay đổi
         </button>

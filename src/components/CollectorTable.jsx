@@ -1,14 +1,8 @@
 import './CollectorTable.css'
 
-const routes = [
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-]
 
-const CollectorTable = () => {
+
+const CollectorTable = ({collectors}) => {
     return(
         <table className="collector-table">
             <thead>
@@ -21,14 +15,16 @@ const CollectorTable = () => {
                 </tr>
             </thead>
             <tbody>
-                {routes.map((route, i) => {
+                {collectors?.map((collector, i) => {
                     return(
                     <tr key={i}>
-                        <td>{route.name}</td>
-                        <td>{route.collector}</td>
-                        <td>{route.vehicle}</td>
-                        <td>{route.MCP}</td>
-                        <td>{route.state}</td>
+                        <td>{collector.userID}</td>
+                        <td>{collector.workDay}</td>
+                        <td>{collector.workTime}</td>
+                        <td>{collector.licenseNumber}</td>
+                        <td>
+                            <input className='checkbox' type='checkbox' />
+                        </td>
                     </tr>
                     )
                 })}

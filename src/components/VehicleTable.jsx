@@ -1,34 +1,29 @@
 import './VehicleTable.css'
 
-const routes = [
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-]
 
-const CollectorTable = () => {
+const VehicleTable = ({vehicles}) => {
     return(
-        <table className="collector-table">
+        <table className="vehicle-table">
             <thead>
                 <tr>
                     <th>Mã số xe</th>
+                    <th>Tên xe</th>
                     <th>Sức chứa</th>
-                    <th>Tình trạng xe</th>
-                    <th>Bảng số xe</th>
+                    <th>Tiêu hao nhiên liệu</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                {routes.map((route, i) => {
+                {vehicles?.map((vehicle, i) => {
                     return(
                     <tr key={i}>
-                        <td>{route.name}</td>
-                        <td>{route.collector}</td>
-                        <td>{route.vehicle}</td>
-                        <td>{route.MCP}</td>
-                        <td>{route.state}</td>
+                        <td>{vehicle.vehicleID}</td>
+                        <td>{vehicle.vehicleName}</td>
+                        <td>{vehicle.capacity}</td>
+                        <td>{vehicle.fuelConsumption}</td>
+                        <td>
+                            <input className='checkbox' type='checkbox' />
+                        </td>
                     </tr>
                     )
                 })}
@@ -37,4 +32,4 @@ const CollectorTable = () => {
     )
 }
 
-export default CollectorTable
+export default VehicleTable
