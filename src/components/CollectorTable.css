@@ -30,7 +30,7 @@ td:last-child{
     border-radius: 0 5px 5px 0;
 }
 
-.checkbox{
+.collector-table .checkbox{
     aspect-ratio: 1;
     width: 20px;
 }

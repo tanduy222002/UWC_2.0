@@ -19,10 +19,10 @@ function App() {
       <div className='main-layout'>
         <Routes>
             <Route path='/:week' element={<WeekSelect />} />
-            <Route path='/:week/collector' element={<CollectorSelection /> } />
-            <Route path='/:week/vehicle' element={<VehicleSelection /> } />
-            <Route path='/:week/mcp' element={<MCPSelection /> } />
-            <Route path='/:week/:mcp/janitor' element={<JanitorSelection /> } />
+            <Route path='/:week/:route/collector' element={<CollectorSelection /> } />
+            <Route path='/:week/:route/vehicle' element={<VehicleSelection /> } />
+            <Route path='/:week/:route/mcp' element={<MCPSelection /> } />
+            <Route path='/:week/:route/:mcp/janitor' element={<JanitorSelection /> } />
 
         </Routes>
       </div>

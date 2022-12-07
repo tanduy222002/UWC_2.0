@@ -1,17 +1,10 @@
 import './RouteTable.css'
 import { useNavigate } from 'react-router-dom'
 
-/*
-const routes = [
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-    {name: "TĐ-LT", collector: "Nguyễn Văn A", vehicle: "2T-01", MCP: "6/6", state: "Đã hoàn thành"},
-]
-*/
+
 
 const RouteTable = ({routes}) => {
+    console.log(routes);
     const navigate = useNavigate()
     return(
         <table className="route-table">
@@ -25,17 +18,17 @@ const RouteTable = ({routes}) => {
                 </tr>
             </thead>
             <tbody>
-                {routes.map((route, i) => {
+                {routes?.map((route, i) => {
                     return(
                     <tr key={i}>
                         <td>{route.routeName}</td>
-                        <td onClick={() => navigate('collector')}>
+                        <td onClick={() => navigate(`${route.routeIO}/collector`)}>
                             {route.colName}
                         </td>
-                        <td onClick={() => navigate('vehicle')}>
+                        <td onClick={() => navigate(`${route.routeIO}/vehicle`)}>
                             {route.vecName}
                         </td>
-                        <td onClick={() => navigate('MCP')}>
+                        <td onClick={() => navigate(`${route.routeIO}/MCP`)}>
                             {route.MCP}
                         </td>
                         <td>{route.state}</td>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useRouteUpdate } from '../hooks/useRouteUpdate';
 import { api } from '../data/api';
 import SearchBar from '../components/SeachBar'
 import CollectorTable from '../components/CollectorTable'
@@ -8,8 +9,23 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const CollectorSelection = () => {
-  const [collectors, setCollectors] = useState()
   const navigate = useNavigate()
+  const { route } = useParams()
+  const [collectors, setCollectors] = useState()
+  const [selected, setSelected] = useState(-1)
+  const updateRoute = useRouteUpdate()
+  function checkItem(e, i) {
+      if(e.target.checked) {
+          setSelected(i)
+      }
+      else{
+          setSelected(-1)
+      }
+  }
+  function updateCollector() {
+    let selectedCollector = collectors[selected]
+    updateRoute(route, "colName", selectedCollector.userName)
+  }
   useEffect(() => {
     const url = '/api/collector?week=11&month=12'
     api.get(url)
@@ -27,8 +43,13 @@ const CollectorSelection = () => {
         </div>
 
         <SearchBar placeHolder='Tìm kiếm tài xế theo tên'/>
-        <CollectorTable collectors={collectors}/>
-        <button className='submit' style={{marginTop: "10px"}}>
+        <CollectorTable collectors={collectors} selected={selected} checkItem={checkItem} />
+        <button           
+          className='submit' 
+          style={{marginTop: "10px"}}
+          disabled={selected === -1 ? true : false}
+          onClick={()=>{updateCollector()}}
+        >
           Lưu thay đổi
         </button>
     </>

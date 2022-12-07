@@ -1,14 +1,32 @@
 import { useState, useEffect} from 'react'
 import { api } from '../data/api'
-import './VehicleSelection.css'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useRouteUpdate } from '../hooks/useRouteUpdate'
 import SearchBar from '../components/SeachBar'
 import VehicleTable from '../components/VehicleTable'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import './VehicleSelection.css'
 
 const VehicleSelection = () => {
   const navigate = useNavigate()
+  const { route } = useParams()
   const [vehicles, setVehicles] = useState()
+  const [selected, setSelected] = useState(-1)
+  const  updateRoute  = useRouteUpdate()
+  function checkItem(e, i) {
+      if(e.target.checked) {
+          setSelected(i)
+      }
+      else{
+          setSelected(-1)
+      }
+  }
+
+  function updateVehicle() {
+    let selectedVehicle = vehicles[selected]
+    updateRoute(route, "vecName", selectedVehicle.vehicleName)
+
+  }
 
   useEffect(() => {
     const url = '/api/vehicle?week=11&month=12'
@@ -26,10 +44,15 @@ const VehicleSelection = () => {
             <div>Địa chỉ</div>
         </div>
 
-        <SearchBar placeHolder='Tìm kiếm tài xế theo tên'/>
-        <VehicleTable vehicles={vehicles}/>
-        <button className='submit' style={{marginTop: "10px"}}>
-            Lưu thay đổi
+        <SearchBar placeHolder='Tìm kiếm phương tiện'/>
+        <VehicleTable vehicles={vehicles} selected={selected} checkItem={checkItem}/>
+        <button 
+            className='submit' 
+            style={{marginTop: "10px"}}
+            disabled={selected === -1 ? true : false}
+            onClick={() => updateVehicle()}
+          >
+          Lưu thay đổi
         </button>
 
     </>

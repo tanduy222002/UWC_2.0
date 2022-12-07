@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import './VehicleTable.css'
 
 
-const VehicleTable = ({vehicles}) => {
+const VehicleTable = ({vehicles, selected, checkItem}) => {
+
+
     return(
         <table className="vehicle-table">
             <thead>
@@ -22,7 +25,12 @@ const VehicleTable = ({vehicles}) => {
                         <td>{vehicle.capacity}</td>
                         <td>{vehicle.fuelConsumption}</td>
                         <td>
-                            <input className='checkbox' type='checkbox' />
+                            <input 
+                                className='checkbox' 
+                                type='checkbox' 
+                                checked={i === selected ? true : false}
+                                onChange={(e)=>checkItem(e, i)}
+                            />
                         </td>
                     </tr>
                     )
